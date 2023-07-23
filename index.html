@@ -23,17 +23,22 @@
     // 🧠 Example of usage:
     // buildPeter() // should return { firstName: "Peter", lastName: "Pan", age: 12 }
     function buildPeter() {
-
+      let peter={firstName: "Peter", lastName: "Pan", age: 12}
+      return peter
     }
 
+    
     // 👉 CHALLENGE 2
     // 🧠 The function buildUser takes three arguments and uses them to build an object and return it.
     // 🧠 Example of usage:
     // buildUser("John", "Smith", 30) // should return { firstName: "John", lastName: "Smith", age: 30 }
     function buildUser(firstName, lastName, age) {
-
+      let user={}
+      user.firstName = firstName;
+      user.lastName = lastName;
+      user.age=age;
+      return user
     }
-
     // 👉 CHALLENGE 3
     // 🧠 The function deletePrice takes an object as its argument and deletes its "price" property if it exists.
     // 🧠 If on the other hand there is no "price" property on the object, a "priceless" property with a value of true is added to it.
@@ -42,8 +47,13 @@
     // 🧠 Examples of usage:
     // deletePrice({ item: "Tesla Model 3", price: 40000 }) // should return { item: "Tesla Model 3" }
     // deletePrice({ item: "Kobo Libra 2" }) // should return { item: "Kobo Libra 2", priceless: true }
-    function deletePrice() {
-
+    function deletePrice(object) {
+      if ("price" in object) {
+        delete object.price;
+      } else {
+        object.priceless = true;
+      }
+    return object;
     }
 
     // 👉 CHALLENGE 4
@@ -52,8 +62,8 @@
     // 🧠 Examples of usage:
     // evenList(['a']) // should return false
     // evenList(['a', 'b']) // should return true
-    function evenList(arr) {
-
+    function evenList(array) {
+      return array.length%2===0;
     }
 
     // 👉 CHALLENGE 5
@@ -62,9 +72,12 @@
     // 🧠 Examples of usage:
     // firstOrLast(['a', 'b'], true) // should return 'a'
     // firstOrLast(['a', 'b'], false) // should return 'b'
-    function firstOrLast() {
+    function firstOrLast(Array,Boolean) {
+      if (Boolean===true){
+        return Array[0]
+      } else return Array[Array.length-1]
+      }
 
-    }
 
     // 👉 CHALLENGE 6
     // 🧠 The function pushElement takes an array as the first argument, and any value we wish as the second.
@@ -72,8 +85,9 @@
     // 🧠 Examples of usage:
     // pushElement([], 1) // should return [1]
     // pushElement(['a', 'b'], 'c') // should return ['a', 'b', 'c']
-    function pushElement() {
-
+    function pushElement(Array,value) {
+      Array.push(value);
+      return Array;
     }
 
     // 👉 CHALLENGE 7
@@ -88,9 +102,16 @@
     // 🧠 At each iteration of the loop, if the current character is not "x", then add it to the end of the result array.
     // 🧠 You can merge the result array back into a string by using join. Example: ["f", "o", "o"].join("") yields "foo"
     // 🧠 Do not forget to return your rejoined string!
-    function stripX() {
+    function stripX(string) {
+      let letters=string.split("")
+      let newletters=[]
 
-    }
+      for (let i of letters){
+        if (i !=="x"){
+          newletters.push(i);
+        }}
+        return newletters.join("")
+      }
 
     // 👉 CHALLENGE 8
     // 🧠 The function stripChar takes a string as its first argument and a character as its second argument.
@@ -101,9 +122,16 @@
     // ❗ Important Notes:
     // 🧠 Try to solve this problem without looking at how you solved the previous one.
     // 🧠 If you need to look, do not copy & paste code. Take a peek and then work from memory!
-    function stripChar() {
+    function stripChar(string,character) {
+      let searchforchar=string.split("")
+      let newstring=[]
 
-    }
+      for (let i of searchforchar){
+        if (i!==character){
+          newstring.push(i)
+        }}
+        return newstring.join("")
+      }
 
     // 👉 CHALLENGE 9
     // 🧠 The function getProps takes an object as its argument.
@@ -114,9 +142,13 @@
     // getProps({ lastName: "Smith", age: 35 }) // should return ["lastName"]
     // getProps({ firstName: "Jane", married: false }) // should return ["firstName"]
     // getProps({ name: "Bamby", favFood: "flowers" }) // should return ["name", "favFood"]
-    function getProps() {
+    function getProps(object) {
+      let nopers = ['age', 'married'];
+      let allProps = Object.keys(object);
+      const filteredProps = allProps.filter(prop => !excludedProps.includes(prop));
+  return filteredProps;
+}
 
-    }
 
     // 🧪 TESTS, do not work below this line
     // 🧪 TESTS, do not work below this line
